@@ -1,6 +1,4 @@
 # YMC SDK for Unity3D games 
-## (beta,haha!!!)
-
 ![Mou icon](http://developer.ymcgames.com/images/ymc-logo.png)
 
 ## Overview
@@ -27,20 +25,15 @@ and normally it's called in an Unity MonoBehaviour as following:
 
 	StartCoroutine(YMC.Init(YOUR_GAMEID));	
 
-## YMCU
+## YMCU namespace
 ### Profile
 A YMC User Account has the following properties: 
     
-    public string UserName
-			
-	public string EMail	
-		
+        public string UserName
+	public string EMail
 	public string Password
-			
-	public string FirstName	
-		
-	public string LastName		
-		
+	public string FirstName
+	public string LastName
 	public string Gender
 	
 Usage:
@@ -53,7 +46,7 @@ Usage:
 
 YMCU Session is a singleton for Registration/Login/Logout to YMC User system:
 	
-	public static Session Instance;
+	YMCU.Session t = YMCU.Session.Instance;
 	
 Most methods are asynchronous, and the following callback delegates should be used:
 
@@ -193,7 +186,7 @@ Example:
 	}
 	       
 
-## YMCA
+## YMCA namespace
 
 ### YAEvent
 Events that should be logged by YMC Analytics system are represented by YAEvent objects.
