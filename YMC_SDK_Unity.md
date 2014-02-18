@@ -12,9 +12,9 @@ The YMC SDK for Unity is available from YMC Developer's site [https://developer.
 
 Please import the SDK package into your project:
 
-![image](images/Screen Shot Import.png)
+![image](images/Screen_Shot_Import.png)
 
-![image](images/Screen Shot Package.png)
+![image](images/Screen_Shot_Package.png)
 
 ## Initialization
 Before using all the SDK APIs, the following static method should be called to initialize things:
