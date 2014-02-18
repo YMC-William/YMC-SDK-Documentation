@@ -24,7 +24,7 @@ The SDK header files and libraries is organized as following folders:
 
 and they should be put into your game project and accessed correctly.
 
-![image](Screen Shot sdk.png)
+![image](images/Screen Shot sdk.png)
 
 ## YMCU 
 To use YMC User system, please use the APIs declared in the header file YMCU.h:
