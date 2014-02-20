@@ -5,17 +5,21 @@
 ## Overview 概况
 
 **YMC SDK** offers mobile game developers the chance to sccess YMC User system and Analytics information.
+
 游戏开发者可以使用YMC SDK实现用户帐号管理并统计游戏经营数据。
 
 For **Cocos2D-x** and other **C++** games, we deliver header files / libraries for both iOS & Android platforms, and they can be used immediately to utilize what's offered by the YMC User and Analytics systems. 
+
 YMC为使用C++或Cocos2D-x引擎开发的游戏提供了Android和iOS版本的SDK头文件和库。
 
 ## Get Started 起步
 The C++ SDK is available from YMC Developer's site [https://developer.ymcgames.com](), and you should choose the binaries according to your target platforms (Android / iOS).
+
 开发者可以从YMC的开发者网站下载Android或iOS平台的SDK。
 
 ## What's inside the SDK 内容
 The SDK header files and libraries is organized as following folders:
+
 SDK的头文件和库文件目录结构如下：
 
 	include/
@@ -27,6 +31,7 @@ SDK的头文件和库文件目录结构如下：
 		...
 
 and they should be put into your game project and accessed correctly.
+
 请将其正确放置于游戏代码工程中。
 
 ![Import](images/Screen_Shot_sdk.png)
@@ -34,6 +39,7 @@ and they should be put into your game project and accessed correctly.
 ## YMCU 用户帐号管理
 
 To use YMC User system, please use the APIs declared in the header file YMCU.h:
+
 请包含下述头文件：
 
 	#include "YMCU.h"
@@ -41,11 +47,13 @@ To use YMC User system, please use the APIs declared in the header file YMCU.h:
 ### Initialization 初始化
 
 Please call the following API to initialize things first:
+
 在使用其它API之前，请先调用
 
 	YMCResult YMCUserInit(YMCUserOptions* ymcUserOptions);
 	
 where the *YMCUserOptions* is declared as:
+
 *YMCUserOptions* 类型定义：
 
     typedef struct  {
@@ -54,6 +62,7 @@ where the *YMCUserOptions* is declared as:
     }YMCUserOptions;
 	
 Example:
+
 例子：
 
     YMCUserOptions userOptions;
@@ -62,6 +71,7 @@ Example:
     YMCUserInit( &userOptions );
     	
 ### Register a YMC account:
+
 注册YMC用户帐号：
 
 This API is for user account registration:
@@ -71,23 +81,25 @@ This API is for user account registration:
                           (YMCUOnError)OnError);
                           
 Most YMCU APIs are implemented as asynchronous calls, and the following function points should be supplied as callback paramaters:
+
 大部分YMCU API是以异步方式工作的，调用时须传递下面两个回调函数指针：
 
     void OnError(char* error_response, void* pdata);
     void OnSuccess(YMCUserSession *puserSession, void *pdata)
 
 Example:
+
 例子：
 
     void OnError(char* error_response, void* pdata)
-   {
+    {
     	CCLOG("Error! ");
     	CCLOG("%s", error_response);
         //...
-	}
+    }
 
-	void OnSuccess(YMCUserSession *puserSession, void *pdata)
-	{
+    void OnSuccess(YMCUserSession *puserSession, void *pdata)
+    {
     	CCLOG("Success! ");
     	CCLOG("access_token: %s", puserSession->access_token);
     	CCLOG("user_id: %d",puserSession->user_id);
@@ -101,9 +113,10 @@ Example:
                           (YMCUOnSuccess)OnSuccess,
                           (YMCUOnError)OnError);
                          
-### Login: 登陆：
+### Login: 登录
 
 Same as Registration, only should be used for existing account:
+
 适用于已注册的用户帐号： 
 
 	YMCResult result;
