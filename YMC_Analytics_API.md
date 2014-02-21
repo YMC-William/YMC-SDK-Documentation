@@ -35,9 +35,9 @@ An Event of type "YA0birth" should be posted to YMCA server for tracking first l
     }
 	}
 	
-### App goes to the forground
-An Event of type "YA0start" should be posted to YMCA server whenever the app appears (including recover from the background).
-On top of the minimal attributes, a YA0birth event should have the **Launch Count** property recording the times of the app going to the foreground. a full example is as following:
+### App comes to the foreground
+An Event of type "YA0start" should be posted to YMCA server whenever the app appears (including recovery from the background).
+On top of the minimal attributes, a YA0birth event should have the **count** property, recording the number of times the app came to the foreground. A full example is as follows:
 
 	{
 	 "event": "YA0start",
@@ -53,7 +53,7 @@ On top of the minimal attributes, a YA0birth event should have the **Launch Coun
 ### App disappears
 An Event of type "YA0session" should be posted to YMCA server whenever the app disappears (including pause to the background or shutting down).
 
-On top of the minimal attributes, a YA0session event should have the **start** and **end** properties indicating the time interval of the app's appearance. a full example is as following:
+On top of the minimal attributes, a YA0session event should have the **start** and **end** properties indicating the time interval of the app's appearance. A full example is as follows:
 
 	{
 	"event": "YA0session",

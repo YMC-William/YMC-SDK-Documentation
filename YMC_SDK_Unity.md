@@ -3,12 +3,12 @@
 
 ## Overview
 
-**YMC SDK** offers mobile game developers the chance to sccess YMC User system and Analytics information.
+**YMC SDK** offers mobile game developers the chance to access YMC User system and Analytics information.
 
-For **Unity3D** games, we deliver packages for both iOS & Android platforms, and they can be used immediately to utilize things of the YMC User system and Analytics stuff. 
+For **Unity3D** games, we deliver packages for both iOS & Android platforms, that can be used immediately to utilize YMC User system and Analytics facilities. 
 
 ## Get Started
-The YMC SDK for Unity is available from YMC Developer's site [https://developer.ymcgames.com](), and you could find the packages for both Android and iOS.
+The YMC SDK for Unity is available from YMC Developer's site [https://developer.ymcgames.com](), where you can find packages for both Android and iOS.
 
 Please import the SDK package into your project:
 
@@ -17,11 +17,11 @@ Please import the SDK package into your project:
 ![image](images/Screen_Shot_Package.png)
 
 ## Initialization
-Before using all the SDK APIs, the following static method should be called to initialize things:
+Before using any SDK API functionality, the following static method should be called for initialization purposes:
 	
 	public static IEnumerator Init(string gameID, bool usingTestServer=false, bool debugInfo=false);
 	
-and normally it's called in an Unity MonoBehaviour as following:
+Normally it's called in an Unity MonoBehaviour as follows:
 
 	StartCoroutine(YMC.Init(YOUR_GAMEID));	
 
@@ -44,7 +44,7 @@ Usage:
 	
 ### Session
 
-YMCU Session is a singleton for Registration/Login/Logout to YMC User system:
+YMCU Session is a singleton for YMC User system Registration/Login/Logout:
 	
 	YMCU.Session t = YMCU.Session.Instance;
 	
@@ -53,7 +53,7 @@ Most methods are asynchronous, and the following callback delegates should be us
 	/// <summary> delegate for successful YMCU operations. </summary>
 	public delegate void onSuccess();
 	
-	/// <summary> delegate for successful User Profile retrieve.</summary>
+	/// <summary> delegate for successful User Profile retrieval. </summary>
 	/// <param name="aProfile"> User Profile returned by the operation. </param>
 	public delegate void onUserInfo(Profile aProfile);
 
@@ -65,8 +65,8 @@ Initialization:
 
  	/// <summary> Initialize the session.</summary>
     /// <param name="gid"> the YMC ID of current game. </param>
-    /// <param name="isDebug"> Optional parameter to set to use the Testing server or not, is false by default. </param>	
-	public void init(string gid, bool usingTestSetver=false);
+    /// <param name="isDebug"> Optional parameter (false by default) that indicates whether to use the test server. </param>	
+	public void init(string gid, bool usingTestServer=false);
 	
 Methods:
 
@@ -81,20 +81,20 @@ Methods:
 	/// <summary> register with the server.</summary>
 	/// <param name="p"> the YMC User profile/account. </param>
     /// <param name="suc"> the delegate if successfully registered. </param>
-    /// <param name="err"> the delegate if failed registration. </param>
+    /// <param name="err"> the delegate if registration failed. </param>
 	public IEnumerator register(Profile p, onSuccess suc, onError err);
 	
-	/// <summary> Login the server.</summary>
+	/// <summary> Login to the server.</summary>
 	/// <param name="p"> the YMC User profile/account. </param>
     /// <param name="suc"> the delegate if successfully logged in. </param>
-    /// <param name="err"> the delegate if failed login. </param>
+    /// <param name="err"> the delegate if login failed. </param>
 	public IEnumerator login(Profile p, onSuccess suc, onError err);
 	
 	/// <summary> Login through Facebook.</summary>
 	/// <param name="fbId"> the active Facebook Id. </param>
 	/// <param name="fbId"> the active Facebook Token. </param>
     /// <param name="suc"> the delegate if successfully logged in. </param>
-    /// <param name="err"> the delegate if failed login. </param>
+    /// <param name="err"> the delegate if login failed. </param>
 	public IEnumerator loginFacebook(string fbId, string fbToken, onSuccess suc, onError err);
 	
 	/// <summary> Logoff from YMC server.</summary>
@@ -196,19 +196,19 @@ Events that should be logged by YMC Analytics system are represented by YAEvent 
 
 #### Adding Event properties:
    
-    /// <summary> Put a integer property.</summary>
+    /// <summary> Add an integer property.</summary>
     /// <param name="key"> key of the property. </param>
     /// <param name="number"> integer value of the property. </param>
 	public void putNumber(string key, int number);
 	
-	/// <summary> Put a string property.</summary>
+	/// <summary> Add a string property.</summary>
     /// <param name="key"> key of the property. </param>
     /// <param name="number"> string value of the property. </param>
 	public void putString(string key, string value);
 	
 	
 ### Tracker
-The Tracker is designed as a Singleton for tracking YAEvent, and should be bused as
+The Tracker is designed as a Singleton for tracking YAEvent, and should be used as follows:
 
 	YMCA.Tracker t = YMCA.Tracker.Instance;
 	
@@ -219,7 +219,7 @@ Initialization:
 
 Methods:
 
-    /* to track a purchasement */
+    /* to track a purchase */
 	public IEnumerator trackPayment(string currency, double amount);
 	
 	/* to track customized YAEvent */
