@@ -4,7 +4,7 @@
 
 ## Overview 概况
 
-**YMC SDK** offers mobile game developers the chance to sccess YMC User system and Analytics information.
+**YMC SDK** offers mobile game developers the chance to access YMC User system and Analytics information.
 
 游戏开发者可以使用YMC SDK实现用户帐号管理并统计游戏经营数据。
 
@@ -18,7 +18,7 @@ The C++ SDK is available from YMC Developer's site [https://developer.ymcgames.c
 开发者可以从YMC的开发者网站下载Android或iOS平台的SDK。
 
 ## What's inside the SDK 内容
-The SDK header files and libraries is organized as following folders:
+The SDK header files and libraries have the following directory structure:
 
 SDK的头文件和库文件目录结构如下：
 
@@ -30,7 +30,7 @@ SDK的头文件和库文件目录结构如下：
 		ymcsdk.a
 		...
 
-and they should be put into your game project and accessed correctly.
+and they should be put into your game project for proper utilization.
 
 请将其正确放置于游戏代码工程中。
 
@@ -38,7 +38,7 @@ and they should be put into your game project and accessed correctly.
 
 ## YMCU 用户帐号管理
 
-To use YMC User system, please use the APIs declared in the header file YMCU.h:
+To interface with the YMC User system, please use the APIs declared in the header file YMCU.h:
 
 请包含下述头文件：
 
@@ -46,7 +46,7 @@ To use YMC User system, please use the APIs declared in the header file YMCU.h:
 	
 ### Initialization 初始化
 
-Please call the following API to initialize things first:
+Please call the following API function to initialize things before using anything else from the other YMC SDK API:
 
 在使用其它API之前，请先调用
 
@@ -80,7 +80,7 @@ This API is for user account registration:
                           (YMCUOnSuccess)OnSuccess,
                           (YMCUOnError)OnError);
                           
-Most YMCU APIs are implemented as asynchronous calls, and the following function points should be supplied as callback paramaters:
+Most YMCU APIs are implemented as asynchronous calls, and the following function pointers should be supplied as callback paramaters:
 
 大部分YMCU API是以异步方式工作的，调用时须传递下面两个回调函数指针：
 
@@ -115,7 +115,7 @@ Example:
                          
 ### Login: 登录
 
-Same as Registration, only should be used for existing account:
+Same as with Registration, except it should only be used for an existing account:
 
 适用于已注册的用户帐号： 
 
@@ -181,8 +181,8 @@ Please call yaInit to initialize with your Game's YMC ID:
 
 	yaInit(YOUR_GAMEID);
 
-### Track purchasement 记录游戏内购
-yaCharge should be called to track any purchasement made by the game player.
+### Track purchases 记录游戏内购
+yaCharge should be called to track any purchases made by the player.
 
     void yaCharge(const char *currency, double value);
     
@@ -194,11 +194,11 @@ Example:
 
 
 ### yaEvent 经分事件
-Events describe things that happen in your game, usually as the result of user interaction; for example, when a player conquered a level, or purchased some equipment, you can send an event to record the incident.
+Events describe things that happen in your game, usually as the result of user interaction; for example, when a player conquered a level, or purchased some equipment, you can send an event to record the occurrence.
 yaEvent描述了当前游戏中需要被记录下来以便随后系统分析的各种事件。
 	
 ### Track custom events 记录自定义事件
-Sometimes you might want to track other specific things happened in your game, such as when the player passed one level, and YMCA allows developers construct customized yaEvent for such purpose: 
+Sometimes you might want to track other specific in-game occurrences, such as when the player completes a level.YMCA allows developers to construct customized yaEvent for this purpose: 
 如果需要记录特定的游戏事件，可以构造和定制yaEvent加以描述：
 
     yaEvent *yaEventCreate(const char *name);
