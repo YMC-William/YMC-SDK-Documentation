@@ -60,14 +60,7 @@ Most methods are asynchronous, and the following callback delegates should be us
 	/// <summary> delegate for failed YMCU operations.</summary>
 	/// <param name="err"> The error message. </param>
 	public delegate void onError(string err);
-	
-Initialization:
 
- 	/// <summary> Initialize the session.</summary>
-    /// <param name="gid"> the YMC ID of current game. </param>
-    /// <param name="isDebug"> Optional parameter to set to use the Testing server or not, is false by default. </param>	
-	public void init(string gid, bool usingTestSetver=false);
-	
 Methods:
 
     /* retrieve the token of current session */
@@ -211,11 +204,6 @@ Events that should be logged by YMC Analytics system are represented by YAEvent 
 The Tracker is designed as a Singleton for tracking YAEvent, and should be bused as
 
 	YMCA.Tracker t = YMCA.Tracker.Instance;
-	
-Initialization:
-
-    /* set isDebug to be true if you want to see it from YMC debug view */
-	public IEnumerator init(string aToken, bool isDebug = false);
 
 Methods:
 
