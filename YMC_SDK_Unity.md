@@ -19,11 +19,11 @@ Please import the SDK package into your project:
 ## Initialization
 Before using all the SDK APIs, the following static method should be called to initialize things:
 	
-	public static IEnumerator Init(string gameID, bool usingTestServer=false, bool debugInfo=false);
+	public static Init(string gameID, bool usingTestServer=false, bool debugInfo=false);
 	
 and normally it's called in an Unity MonoBehaviour as following:
 
-	StartCoroutine(YMC.Init(YOUR_GAMEID));	
+	YMC.Init(YOUR_GAMEID);	
 
 ## YMCU namespace
 ### Profile
@@ -208,27 +208,27 @@ The Tracker is designed as a Singleton for tracking YAEvent, and should be bused
 Methods:
 
     /* to track a purchasement */
-	public IEnumerator trackPayment(string currency, double amount);
+	public void trackPayment(string currency, double amount);
 	
 	/* to track customized YAEvent */
-	public override IEnumerator trackEvent(YAEvent e);
+	public void trackEvent(YAEvent e);
 
 Example:
 
 	/// Track a custom event "Level-Up":	 
-	    IEnumerator yaCustom() {        
+	    void yaCustom() {        
         YMCA.YAEvent e = new YMCA.YAEvent("Level-Up");
         e.putNumber("earned", 1000);
         e.putString("beat", "Somebody");
 		
-		YMCA.Tracker t = YMCA.Tracker.Instance;
-        return t.trackEvent(e);
+	YMCA.Tracker t = YMCA.Tracker.Instance;
+        t.trackEvent(e);
     }
 
 	/// Track an In-App_Purchasement:
-    IEnumerator yaPay() {
+    void yaPay() {
         YMCA.Tracker t = YMCA.Tracker.Instance;
-        return t.trackPayment("CAD", 0.99);
+        t.trackPayment("CAD", 0.99);
     }
 	
 
