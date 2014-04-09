@@ -10,7 +10,7 @@
 Events describe things that happen in your game, usually as the result of user interaction; for example, when a player conquered a level, or purchased some equipment, you can send an event to record the incident.
 
 ### Common Attributes
-All Events are of standard JSON objects and should have the following attributes at least (thus a "minimal" Event):
+All Events are standard JSON objects and should at least have the following attributes(thus a "minimal" Event):
 	
 	{
     "event" : <Event Name>,
@@ -23,7 +23,7 @@ All Events are of standard JSON objects and should have the following attributes
 	}
 
 ### First Launching
-An Event of type "YA0birth" should be posted to YMCA server for tracking first launching of the app. a full example is as following:
+An Event of type "YA0birth" should be posted to the YMCA server for tracking a first launch of the app. a full example follows:
 
 	{
 	"event": "YA0birth",
@@ -36,8 +36,8 @@ An Event of type "YA0birth" should be posted to YMCA server for tracking first l
 	}
 	
 ### App goes to the forground
-An Event of type "YA0start" should be posted to YMCA server whenever the app appears (including recover from the background).
-On top of the minimal attributes, a YA0birth event should have the **Launch Count** property recording the times of the app going to the foreground. a full example is as following:
+An Event of type "YA0start" should be posted to the YMCA server whenever the app appears (including recovery from the background).
+On top of the minimal attributes, a YA0birth event should have the **Launch Count** property recording the times entered the foreground. A full example follows:
 
 	{
 	 "event": "YA0start",
@@ -51,9 +51,9 @@ On top of the minimal attributes, a YA0birth event should have the **Launch Coun
 	}
 	
 ### App disappears
-An Event of type "YA0session" should be posted to YMCA server whenever the app disappears (including pause to the background or shutting down).
+An Event of type "YA0session" should be posted to the YMCA server whenever the app disappears (including pause to the background or shutting down).
 
-On top of the minimal attributes, a YA0session event should have the **start** and **end** properties indicating the time interval of the app's appearance. a full example is as following:
+On top of the minimal attributes, a YA0session event should have the **start** and **end** properties indicating the time interval of the app's appearance. A full example is as following:
 
 	{
 	"event": "YA0session",
@@ -67,9 +67,9 @@ On top of the minimal attributes, a YA0session event should have the **start** a
     "time": "2014-02-11T10:14:36.000Z"}
     }
 	
-### Purchasement Event
-An Event of type "YA0charge" should be posted to YMCA server for tracking any purchasement made by the game player.
-On top of the minimal attributes, a purchasement event should have the **currency type** and **amount** properties. a full example is as following:
+### Purchase Event
+An Event of type "YA0charge" should be posted to YMCA server for tracking any purchases made by the game player.
+In addition to the minimal attributes, a purchase event should have the **currency type** and **amount** properties. A full example is as follows:
 
 	{
     "event" : "YA0charge",
@@ -84,7 +84,7 @@ On top of the minimal attributes, a purchasement event should have the **currenc
 	}
 	
 ### Custom Event
-Sometimes you might want to track other specific things happened in your game, such as when the player passed one level, and YMCA allows developers adding extra properties to the "minimal" Event and logging it eventually. Here comes an example of "Level-up" Event:
+Sometimes you might want to track other specific things happened in your game, such as when the player passed one level, and YMCA allows you to add extra properties to the "minimal" Event and logging it eventually. Here comes an example of "Level-up" Event:
 
 	{
     "event" : "Level-Up",
@@ -107,7 +107,7 @@ This URL tracks an event with YMC Analytics:
 
 	http://api.mixpanel.com/track/?data=[BASE64 encoded JSON data]
 	
-The request will return an HTTP response with body "YAP T1" if the track call is successful.
+The request will return an HTTP response with body "YAP T1" if the tracking call is successful.
 
 ### Example of tracking an IAP:
 1. Construct the JSON object:

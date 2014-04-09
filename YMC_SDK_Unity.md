@@ -3,18 +3,17 @@
 
 ## Overview
 
-**YMC SDK** offers mobile game developers the chance to sccess YMC User system and Analytics information.
+**YMC SDK** offers mobile game developers the chance to access YMC User system and Analytics data.
 
-For **Unity3D** games, we deliver packages for both iOS & Android platforms, and they can be used immediately to utilize things of the YMC User system and Analytics stuff. 
+For **Unity3D** games, we have packages for both iOS & Android platforms, and they can be used immediately to utilize both the YMC User system and all Analytics data. 
 
 ## Get Started
-The YMC SDK for Unity is available from YMC Developer's site [https://developer.ymcgames.com](), and you could find the packages for both Android and iOS.
+The YMC SDK for Unity is available from YMC Developer's site [https://developer.ymcgames.com](), and you can find the packages for both Android and iOS.
 
 Please import the SDK package into your project:
 
-![image](images/Screen_Shot_Import.png)
-
-![image](images/Screen_Shot_Package.png)
+![image](/images/Screen_Shot_Import.png)
+![image](/images/Screen_Shot_Package.png)
 
 ## Initialization
 Before using all the SDK APIs, the following static method should be called to initialize things:
@@ -201,7 +200,7 @@ Events that should be logged by YMC Analytics system are represented by YAEvent 
 	
 	
 ### Tracker
-The Tracker is designed as a Singleton for tracking YAEvent, and should be bused as
+The Tracker is designed as a Singleton for tracking YAEvent, and should be used as
 
 	YMCA.Tracker t = YMCA.Tracker.Instance;
 

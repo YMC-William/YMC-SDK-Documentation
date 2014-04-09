@@ -4,21 +4,21 @@
 
 ## Overview 概况
 
-**YMC SDK** offers mobile game developers the chance to sccess YMC User system and Analytics information.
+**YMC SDK** offers mobile game developers the chance to access the YMC User system as well as Analytics information.
 
 游戏开发者可以使用YMC SDK实现用户帐号管理并统计游戏经营数据。
 
-For **Cocos2D-x** and other **C++** games, we deliver header files / libraries for both iOS & Android platforms, and they can be used immediately to utilize what's offered by the YMC User and Analytics systems. 
+For **Cocos2D-x** and other **C++** games, we deliver header files & libraries for both iOS & Android platforms, and they can be used immediately to utilize what's offered by the YMC User and Analytics systems. 
 
 YMC为使用C++或Cocos2D-x引擎开发的游戏提供了Android和iOS版本的SDK头文件和库。
 
 ## Get Started 起步
-The C++ SDK is available from YMC Developer's site [https://developer.ymcgames.com](), and you should choose the binaries according to your target platforms (Android / iOS).
+The C++ SDK is available on the YMC Developer site [https://developer.ymcgames.com](). Choose the binaries according to your target platforms (Android / iOS).
 
 开发者可以从YMC的开发者网站下载Android或iOS平台的SDK。
 
 ## What's inside the SDK 内容
-The SDK header files and libraries is organized as following folders:
+The SDK header files and libraries is organized as follows:
 
 SDK的头文件和库文件目录结构如下：
 
@@ -30,11 +30,11 @@ SDK的头文件和库文件目录结构如下：
 		ymcsdk.a
 		...
 
-and they should be put into your game project and accessed correctly.
+and they should be put into your game project and accessed accordingly.
 
 请将其正确放置于游戏代码工程中。
 
-![Import](images/Screen_Shot_sdk.png)
+![Import](/images/Screen_Shot_sdk.png)
 
 ## YMCU 用户帐号管理
 
@@ -80,7 +80,7 @@ This API is for user account registration:
                           (YMCUOnSuccess)OnSuccess,
                           (YMCUOnError)OnError);
                           
-Most YMCU APIs are implemented as asynchronous calls, and the following function points should be supplied as callback paramaters:
+Most YMCU APIs are implemented as asynchronous calls, and the following function points should be supplied as callback parameters:
 
 大部分YMCU API是以异步方式工作的，调用时须传递下面两个回调函数指针：
 
@@ -115,7 +115,7 @@ Example:
                          
 ### Login: 登录
 
-Same as Registration, only should be used for existing account:
+As with Registration, this should only be used for an existing account:
 
 适用于已注册的用户帐号： 
 
@@ -152,14 +152,14 @@ To retrieve the user details in current Session:
                             void* pdata,
                             YMCUOnSuccessUserInfo OnSuccess,
                             YMCUOnError OnError);
-where the "OnSuccess" callback fuction pointer is declared as:
+where the "OnSuccess" callback function pointer is declared as:
 "OnSuccess"回调函数类型定义如下：
 
 	typedef void (*YMCUOnSuccessUserInfo)(YMCUser* puser, void* pdata);
                            
 ### Ask for resending password to my Email: 忘记密码
 
-This API is used to help the users when he forgot his password:
+This API is used to help the users when they forgot their password:
 使用此API重置密码：
 
 	YMCResult YMCUserPasswordForgot(const char* email,
@@ -170,7 +170,7 @@ This API is used to help the users when he forgot his password:
 
 ## YMCA  YMC经分系统
 
-To use YMC Analytics service, please use the APIs declared in the header file YMCA.h:
+To use the YMC Analytics service, please use the APIs declared in the header file YMCA.h:
 头文件：
 
 	#include "YMCA.h"
@@ -181,8 +181,8 @@ Please call yaInit to initialize with your Game's YMC ID:
 
 	yaInit(YOUR_GAMEID);
 
-### Track purchasement 记录游戏内购
-yaCharge should be called to track any purchasement made by the game player.
+### Tracking Purchases 记录游戏内购
+yaCharge should be called to track any purchases made by the player.
 
     void yaCharge(const char *currency, double value);
     
@@ -194,11 +194,11 @@ Example:
 
 
 ### yaEvent 经分事件
-Events describe things that happen in your game, usually as the result of user interaction; for example, when a player conquered a level, or purchased some equipment, you can send an event to record the incident.
+Events describe things that happen in your game, usually as the result of a user action; for example, when a player conquers a level, or purchased some equipment, you can send an event to record the incident.
 yaEvent描述了当前游戏中需要被记录下来以便随后系统分析的各种事件。
 	
 ### Track custom events 记录自定义事件
-Sometimes you might want to track other specific things happened in your game, such as when the player passed one level, and YMCA allows developers construct customized yaEvent for such purpose: 
+Sometimes you might want to track other specific things that happened in your game, such as when the player passed a level, and YMCA allows developers construct a  customized yaEvent for such purposes: 
 如果需要记录特定的游戏事件，可以构造和定制yaEvent加以描述：
 
     yaEvent *yaEventCreate(const char *name);
