@@ -2,25 +2,21 @@
 
 ![Mou icon](http://developer.ymcgames.com/images/ymc-logo.png)
 
-## Overview 概况
+## Overview
 
 **YMC SDK** offers mobile game developers the chance to access the YMC User system as well as Analytics information.
 
-游戏开发者可以使用YMC SDK实现用户帐号管理并统计游戏经营数据。
 
 For **Cocos2D-x** and other **C++** games, we deliver header files & libraries for both iOS & Android platforms, and they can be used immediately to utilize what's offered by the YMC User and Analytics systems. 
 
-YMC为使用C++或Cocos2D-x引擎开发的游戏提供了Android和iOS版本的SDK头文件和库。
 
-## Get Started 起步
+## Get Started
 The C++ SDK is available on the YMC Developer site [https://developer.ymcgames.com](). Choose the binaries according to your target platforms (Android / iOS).
 
-开发者可以从YMC的开发者网站下载Android或iOS平台的SDK。
 
-## What's inside the SDK 内容
+## What's inside the SDK
 The SDK header files and libraries is organized as follows:
 
-SDK的头文件和库文件目录结构如下：
 
 	include/
 		YMCU.h
@@ -32,29 +28,26 @@ SDK的头文件和库文件目录结构如下：
 
 and they should be put into your game project and accessed accordingly.
 
-请将其正确放置于游戏代码工程中。
 
 ![Import](/images/Screen_Shot_sdk.png)
 
-## YMCU 用户帐号管理
+## YMCU
 
 To use YMC User system, please use the APIs declared in the header file YMCU.h:
 
-请包含下述头文件：
 
 	#include "YMCU.h"
 	
-### Initialization 初始化
+### Initialization
 
 Please call the following API to initialize things first:
 
-在使用其它API之前，请先调用
 
 	YMCResult YMCUserInit(YMCUserOptions* ymcUserOptions);
 	
 where the *YMCUserOptions* is declared as:
 
-*YMCUserOptions* 类型定义：
+*YMCUserOptions* ：
 
     typedef struct  {
         char game_id[MAX_GAME_ID_LENGTH];
@@ -63,7 +56,6 @@ where the *YMCUserOptions* is declared as:
 	
 Example:
 
-例子：
 
     YMCUserOptions userOptions;
     strcpy(userOptions.game_id, YOUR_GAMEID);
@@ -72,7 +64,6 @@ Example:
     	
 ### Register a YMC account:
 
-注册YMC用户帐号：
 
 This API is for user account registration:
   
@@ -82,14 +73,11 @@ This API is for user account registration:
                           
 Most YMCU APIs are implemented as asynchronous calls, and the following function points should be supplied as callback parameters:
 
-大部分YMCU API是以异步方式工作的，调用时须传递下面两个回调函数指针：
-
     void OnError(char* error_response, void* pdata);
     void OnSuccess(YMCUserSession *puserSession, void *pdata)
 
 Example:
 
-例子：
 
     void OnError(char* error_response, void* pdata)
     {
@@ -113,11 +101,10 @@ Example:
                           (YMCUOnSuccess)OnSuccess,
                           (YMCUOnError)OnError);
                          
-### Login: 登录
+### Login:
 
 As with Registration, this should only be used for an existing account:
 
-适用于已注册的用户帐号： 
 
 	YMCResult result;
 	result = YMCUserLogin(eMail, password, username, NULL,
@@ -126,15 +113,14 @@ As with Registration, this should only be used for an existing account:
         CCLOG("Login Result: %d",result);
     
 
-### Logoff: 登出
+### Logoff:
 
 	YMCResult result;
     result = YMCUserLogout(&currentSession, NULL, NULL, NULL);
     CCLOG("Logoff Result: %d",result);
     
-### Retrieve Profile of current user: 获取当前用户详情
+### Retrieve Profile of current user:
 YMC User Account is described by the following Struct:
-YMC用户帐号定义如下：
 
     typedef struct {
         char user_name[MAX_USER_NAME_LENGTH];
@@ -146,21 +132,18 @@ YMC用户帐号定义如下：
     } YMCUser;
     
 To retrieve the user details in current Session:    
-获取当前Session的用户详情：
 
 	YMCResult YMCUserGetInfo(YMCUserSession* userSession,
                             void* pdata,
                             YMCUOnSuccessUserInfo OnSuccess,
                             YMCUOnError OnError);
 where the "OnSuccess" callback function pointer is declared as:
-"OnSuccess"回调函数类型定义如下：
 
 	typedef void (*YMCUOnSuccessUserInfo)(YMCUser* puser, void* pdata);
                            
-### Ask for resending password to my Email: 忘记密码
+### Ask for resending password to my Email:
 
 This API is used to help the users when they forgot their password:
-使用此API重置密码：
 
 	YMCResult YMCUserPasswordForgot(const char* email,
                                     void* pdata,
@@ -168,49 +151,41 @@ This API is used to help the users when they forgot their password:
                                     YMCUOnError OnError);
      
 
-## YMCA  YMC经分系统
+## YMCA
 
 To use the YMC Analytics service, please use the APIs declared in the header file YMCA.h:
-头文件：
 
 	#include "YMCA.h"
 
-### Initialization 初始化
+### Initialization
 Please call yaInit to initialize with your Game's YMC ID:
-请使用YMC ID初始化:
 
 	yaInit(YOUR_GAMEID);
 
-### Tracking Purchases 记录游戏内购
+### Tracking Purchases
 yaCharge should be called to track any purchases made by the player.
 
     void yaCharge(const char *currency, double value);
     
 Example:
-例子：
 
      yaCharge("USD",6.99);
      yaCharge("RMB",35);
 
 
-### yaEvent 经分事件
+### yaEvent
 Events describe things that happen in your game, usually as the result of a user action; for example, when a player conquers a level, or purchased some equipment, you can send an event to record the incident.
-yaEvent描述了当前游戏中需要被记录下来以便随后系统分析的各种事件。
 	
-### Track custom events 记录自定义事件
+### Track custom events
 Sometimes you might want to track other specific things that happened in your game, such as when the player passed a level, and YMCA allows developers construct a  customized yaEvent for such purposes: 
-如果需要记录特定的游戏事件，可以构造和定制yaEvent加以描述：
 
     yaEvent *yaEventCreate(const char *name);
 
-    //添加数字属性：
     void yaAddNumber(yaEvent *event,const char*key,double value);
 
-    //添加字符串属性：
     void yaAddString(yaEvent *event,const char *key, const char *value); 
 
 and track the custom event with:
-然后记录此事件：
     
     void yaTrack(yaEvent *event);		
 
