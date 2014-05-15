@@ -19,13 +19,13 @@ Note: You will need a game ID that has been approved by YMC before you can get t
 
 1. Sign in to developer.ymcgames.com and click on Resources then SDK Downloads.
 
-![image](/images/part1.jpg)
+![Import](/images/part1.jpg)
 
 2. Under the SDK section on the right you can find our SDKs
 3. Download the YMC SDK plugin pack for Unity for the platform you are developing for.
 4. For this tutorial download the latest Unity SDK
 
-![image](/images/part2.jpg)
+![Import](/images/part2.jpg)
 
 5. Unzip the file you downloaded.
 6. Launch Unity.
@@ -33,19 +33,19 @@ Note: You will need a game ID that has been approved by YMC before you can get t
 8. In the "Project" tab, right click on the "Assets" folder and "Import Package > Custom Package” and navigate to where you unzipped the YMC Unity SDK.
 9. Select the package you want to import (for the purpose of this tutorial import the iOS version)
 
-![image](/images/part3.jpg)
-![image](/images/part4.png)
+![Import](/images/part3.jpg)
+![Import](/images/part4.png)
 
 10. Now unzip TutorialScripts.zip. Then drag and drop the scripts into the “Assets” folder of the “Project” tab.
 
-![image](/images/part5.jpg)
+![Import](/images/part5.jpg)
 
 11. Double click on “TutorialScript1.cs” and MonoDevelop should load and open the script.
 12. Now we need your YMC Game ID which is specific to your game.
 13. Navigate to developer.ymcgames.com and login.
 14. Navigate to your Games page.
 
-![image](/images/part6.jpg)
+![Import](/images/part6.jpg)
 
 15. You can find your YMC Game ID under the “Game” under the Tasks bar.
 16. The Game ID is the YMC ID.
@@ -59,7 +59,7 @@ Note: You will need a game ID that has been approved by YMC before you can get t
 
 20. Open “TutorialScript2.cs” which can be found on the sidebar in MonoDevelop:
 
-![image](/images/part7.jpg)
+![Import](/images/part7.jpg)
 
 21. Find the line that says:
 
@@ -91,16 +91,16 @@ NOTE: The functions won’t work unless if it’s on a device or simulator! Runn
 31. Now go to “File” > “Build Settings”
 32. Under the “Platform” section, select the “iOS” option and click “Switch Platform”.
 
-![image](/images/BuildSettings.jpg)
+![Import](/images/BuildSettings.jpg)
 
 33. Now with the “Build Settings” open, drag and drop “TutorialScene1” and “TutorialScene2” scene files into the “Scenes In Build” section. Make sure “TutorialScene1” is at the top.
 
-![image](/images/BuildSettings2.jpg)
+![Import](/images/BuildSettings2.jpg)
 
 34. Under “Build Settings”, click on “Player Settings...”.
 35. Scroll down if necessary and under “Optimization”, the SDK Version should be “Simulator SDK”. If not, click on the drop down menu and change it to “Simulator SDK”.
 
-![image](/images/PlayerSettings.jpg)
+![Import](/images/PlayerSettings.jpg)
 
 36. Back to the “Build Settings”, click “Build and Run”
 37. Name your iOS build as “TutorialBuild” and save.
@@ -109,20 +109,20 @@ NOTE: The functions won’t work unless if it’s on a device or simulator! Runn
 
 NOTE: If XCode fails to launch, you can retry with a different “Target iOS Version” under the “Player Settings”. This depends on the version of XCode you have. Try “6.0”. You will have to save over/replace your first build.
 
-![image](/images/PlayerSettings2.jpg)
+![Import](/images/PlayerSettings2.jpg)
 
 39. It is likely XCode will throw two errors, which can be fixed.
 40. First click on the “Unity-iPhone” with the Unity icon beside it.
 
-![image](/images/XCodeError.jpg)
+![Import](/images/XCodeError.jpg)
 
 41. Press the “Build Phases” tab.
 42. Click on “Link Binary With Libraries” to display its items.
 
 43. Click on the “+” sign at the bottom and select “AdSupport.framework” and click “Add”
 
-![image](/images/BuildSettingList.jpg)
-![image](/images/AdFramework.jpg)
+![Import](/images/BuildSettingList.jpg)
+![Import](/images/AdFramework.jpg)
 
 44. Now hit the “Play” icon in XCode to recompile again.
 45. If the program loads then everything should be implemented correctly. However for the SDK to function fully, it has to run from a device.
@@ -137,7 +137,7 @@ NOTE: You may run into the same linking error. Refer to step 31 to step 36 to fi
 50. Once the device is running your tutorial app, you can log into YMC Developer portal.
 51. Go to the game page that has the same “Game ID” as the tutorial and click the “Show Analytics” button.
 
-![image](/images/AnalyticsButton.jpg)
+![Import](/images/AnalyticsButton.jpg)
 
 52. Under the “Tools” section, click on the “SDK Debug View”
 53. This should show all the actions that the YMC SDK tracks such as Launch App, Login, In-App Purchase, Level Up, etc.
@@ -146,5 +146,5 @@ NOTE: You may run into the same linking error. Refer to step 31 to step 36 to fi
 
 ## End Result
 
-![image](/images/Scene1.png)
-![image](/images/Scene2.png)
+![Import](/images/Scene1.png)
+![Import](/images/Scene2.png)
