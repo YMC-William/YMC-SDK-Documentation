@@ -19,13 +19,13 @@ Note: You will need a game ID that has been approved by YMC before you can get t
 
 1. Sign in to developer.ymcgames.com and click on Resources then SDK Downloads.
 
-![Import](/images/part1.jpg)
+![](/images/part1.jpg)
 
 2. Under the SDK section on the right you can find our SDKs
 3. Download the YMC SDK plugin pack for Unity for the platform you are developing for.
 4. For this tutorial download the latest Unity SDK
 
-![Import](/images/part2.jpg)
+![](/images/part2.jpg)
 
 5. Unzip the file you downloaded.
 6. Launch Unity.
@@ -146,5 +146,5 @@ NOTE: You may run into the same linking error. Refer to step 31 to step 36 to fi
 
 ## End Result
 
-![Import](/images/Scene1.png)
-![Import](/images/Scene2.png)
+![](/images/Scene1.png)
+![](/images/Scene2.png)
